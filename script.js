@@ -4,88 +4,81 @@ const audio = document.getElementById('musica');
 const tulipanCenter = document.getElementById('tulipan-center');
 
 const frases = [
-    "Me encanta tu forma de ser",
-    "i Like your eyes",
-    "I like your smile",
-    "I like your hair",
-    "I like your hands",
-    "I like your lips",
-    "I like you again :3",
-    "I like you 🌷",
+    "Me gusta tu forma de ser",
     "Sos una persona increíble",
-    "Me hacés sonreír mucho",
+    "Me hacés reír",
     "Tenés una vibra mágica",
     "Fue bonito coincidir contigo",
     "Eres especial para mí",
     "Gracias por hablarme ese dia del propee",
     "Te Quiero Mucho",
-    "Im scared",
-    "Im scared x2",
     "Vegetita 777",
     "my dynamic Duo",
     "Te quiero mucho x2 :3",
     "Solo en la neck",
-    "Solo en la neck x2"
+    "Im scared",
+    "Im scared x2",
+    "Aqui voy Amyy",
+    "i Like your eyes",
+    "I like your smile",
+    "I like your hair",
+    "I like your hands",
+    "I like your lips :3",
+    "I like you 🌷",
+    "I really like you so much, Amy" // La frase final en inglés
 ];
+
+let currentIndex = 0;
 
 btnPlay.addEventListener('click', () => {
     overlay.style.opacity = '0';
     setTimeout(() => {
         overlay.style.display = 'none';
+        audio.volume = 0.2;
         audio.play();
         createStars();
     }, 1000);
 });
 
 tulipanCenter.addEventListener('click', () => {
-    crearNota();
+    crearNotaEnOrden();
 });
 
-function spawnMessage() {
-    const n = document.createElement('div');
-    n.className = 'note-pop';
-    n.innerText = frases[Math.floor(Math.random()*frases.length)];
-    
-    n.style.left = "50%";
-    n.style.top = "50%";
-    
-    // Reducimos el margen aleatorio para que no se salgan de la pantalla
-    // Un rango de 100px a los lados es más seguro para móviles
-    const randomX = (Math.random() - 0.5) * 200; 
-    n.style.marginLeft = `${randomX}px`;
-    
-    document.body.appendChild(n);
-    setTimeout(() => n.remove(), 7000);
-}
+function crearNotaEnOrden() {
+    if (currentIndex >= frases.length) {
+        currentIndex = 0; // Reinicia si querés que vuelva a empezar
+    }
 
-function crearNota() {
     const note = document.createElement('div');
     note.className = 'note-pop';
-    note.innerText = frases[Math.floor(Math.random() * frases.length)];
-    note.style.left = "50%";
-    note.style.top = "50px";
+    
+    // Si es la última frase, le añadimos una clase especial de CSS
+    if (currentIndex === frases.length - 1) {
+        note.classList.add('final-note');
+    }
 
-    // Dispersión más amplia para notas más grandes
-    const randomX = (Math.random() - 0.5) * 350;
+    note.innerText = frases[currentIndex];
+    currentIndex++;
+
+    note.style.left = "50%";
+    note.style.top = "50%";
+
+    const randomX = (Math.random() - 0.5) * 200; 
     note.style.marginLeft = `${randomX}px`;
 
-    tulipanCenter.appendChild(note);
-    setTimeout(() => note.remove(), 8000); // 8 segundos en pantalla
+    document.body.appendChild(note);
+    setTimeout(() => note.remove(), 8000); 
 }
 
 function createStars() {
     const bg = document.getElementById('particles-js');
     for (let i = 0; i < 60; i++) {
         const star = document.createElement('div');
-        star.style.position = 'absolute';
+        star.className = 'star';
         star.style.width = Math.random() * 3 + 'px';
         star.style.height = star.style.width;
-        star.style.background = 'white';
-        star.style.borderRadius = '50%';
         star.style.top = Math.random() * 100 + '%';
         star.style.left = Math.random() * 100 + '%';
-        star.style.opacity = Math.random();
-        star.style.boxShadow = '0 0 10px white';
         bg.appendChild(star);
     }
 }
