@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You Amy Helen 🌷</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="particles-js"></div>
+
+    <div class="overlay" id="overlay">
+        <button id="btn-play">Abre aqui 🌷</button>
+    </div>
+
+    <div class="container">
+        <div class="flower-wrapper" id="tulipan-center">
+            <div class="main-bouquet">
+                <svg viewBox="0 0 120 120" width="300" height="300">
+                    <path d="M60 110 Q60 80 50 60" stroke="#4a6d41" stroke-width="3" fill="none" />
+                    <path d="M60 110 Q70 80 85 65" stroke="#4a6d41" stroke-width="3" fill="none" />
+                    <path d="M60 110 Q50 80 35 65" stroke="#4a6d41" stroke-width="3" fill="none" />
+                    <g transform="translate(75, 45) rotate(15)">
+                        <path d="M0 20 Q-15 10 -15 -10 Q0 -20 15 -10 Q15 10 0 20" fill="#ffb7c5" />
+                        <path d="M0 20 Q-8 10 -8 0 Q0 -10 8 0 Q8 10 0 20" fill="#ff9aa2" />
+                    </g>
+                    <g transform="translate(45, 45) rotate(-15)">
+                        <path d="M0 20 Q-15 10 -15 -10 Q0 -20 15 -10 Q15 10 0 20" fill="#ffb7c5" />
+                        <path d="M0 20 Q-8 10 -8 0 Q0 -10 8 0 Q8 10 0 20" fill="#ff9aa2" />
+                    </g>
+                    <g transform="translate(60, 30)">
+                        <path d="M0 25 Q-18 12 -18 -12 Q0 -25 18 -12 Q18 12 0 25" fill="#ffc0cb" />
+                        <path d="M0 25 Q-10 12 -10 0 Q0 -12 10 0 Q10 12 0 25" fill="#ffb7c5" />
+                    </g>
+                </svg>
+            </div>
+            <h1 class="title"></h1>
+            <p class="tap-hint">Toca el ramito Amy</p>
+        </div>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="assets/Audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
