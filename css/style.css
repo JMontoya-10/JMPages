@@ -80,21 +80,43 @@ body {
 
 .note-pop {
     position: absolute;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 20px 35px;
-    /* Más espacio */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 15px 25px;
     border-radius: 20px;
     color: white;
-    font-size: 1.3rem;
+    
+    /* AJUSTES RESPONSIVOS CLAVE */
+    font-size: 1.2rem; /* Bajamos un pelín el tamaño base */
     font-weight: bold;
-    white-space: nowrap;
-    pointer-events: none;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    
+    /* Permitir que el texto salte de línea */
+    white-space: normal; 
+    word-wrap: break-word;
+    
+    /* Que la nota no sea más ancha que el 80% de la pantalla del cel */
+    width: auto;
+    max-width: 80vw; 
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 100;
-    animation: bubbleUp 6s ease-out forwards;
+    animation: bubbleUp 7s ease-out forwards;
+    pointer-events: none;
+}
+
+/* Media Query para teléfonos bien pequeños (tipo iPhone SE) */
+@media (max-width: 380px) {
+    .note-pop {
+        font-size: 1rem;
+        padding: 10px 20px;
+        max-width: 85vw;
+    }
+    .title {
+        font-size: 1.8rem;
+    }
 }
 
 @keyframes bubbleUp {

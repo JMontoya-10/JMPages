@@ -41,6 +41,23 @@ tulipanCenter.addEventListener('click', () => {
     crearNota();
 });
 
+function spawnMessage() {
+    const n = document.createElement('div');
+    n.className = 'note-pop';
+    n.innerText = frases[Math.floor(Math.random()*frases.length)];
+    
+    n.style.left = "50%";
+    n.style.top = "50%";
+    
+    // Reducimos el margen aleatorio para que no se salgan de la pantalla
+    // Un rango de 100px a los lados es más seguro para móviles
+    const randomX = (Math.random() - 0.5) * 200; 
+    n.style.marginLeft = `${randomX}px`;
+    
+    document.body.appendChild(n);
+    setTimeout(() => n.remove(), 7000);
+}
+
 function crearNota() {
     const note = document.createElement('div');
     note.className = 'note-pop';
